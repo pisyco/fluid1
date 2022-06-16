@@ -1,0 +1,212 @@
+
+implement fluid1 concept at binary level please
+
+split {
+split three files into six
+	take file one
+		split it in two 
+			files = (one.1 and one.2) //let's call these two files 'linked' to each other, so each part contains information about the other it's linked to (so they know which puzzle piece fits them later on)
+	take file two
+		split it in two
+			files = (two.1 and two.2)
+	take file three
+		split into two
+			files = (three.1 and three.2)
+}
+
+puzzle {
+	take file one.1 and remove link information
+		store information in memory
+		add information to file three.2 //for EXAMPLE (be creative here) hide file header of one.1 somewhere in three.2
+
+		..and so on with the others
+}
+
+//now you have unlinked the files, file one.1 and one.2, two.1 and two.2, three.1 and three.2
+
+
+
+aes256 {
+	encrypt all six files into 10MB archives //say all six files are 100MB
+}
+
+//now you have ten 10MB archives with puzzled files and aes
+
+fluid1 {
+	modify archive in random place //first one recommend
+		modify according to fluid1 principle
+			open file in hex //e.g. with sublime text 
+				{
+				+hex [4 characters added]
+				or
+				-hex [4 characters removed]
+				or
+				rhex [replaced 4 characters with 4 other characters]
+				} 															//think about previous file in windows though
+					create logfile
+						//for example
+						//line 34534 - row 3 +ab03
+						//line 34534 - row 5 -0ga5
+					store logfile on removable drive
+						eject drive
+					delete logfile from host
+			save encrypted file in hexadecimal  //password won't be accepted anymore crc error, but can be undone with opposite operations of logfile
+}
+
+
+//metaphorically speaking
+//abab abab ac00 = abab + abab * ac00 = file.mp3
+//abab abaC ac00 = abab + abaC * ac00 = not same as file.mp3 in other words corrupt file
+
+
+
+//please check for security hole: partitial decrypt with correct password but without logfile / ! \
+
+
+
+nosplit {
+	aes256
+	fluid1
+}
+
+
+
+//choose your own adventure
+cyoa {
+	split
+	puzzle
+	aes256
+	fluid1
+	//fluid1 /again
+	//fluid1 /again, maybe daily on a timer or triggered remotely (emergency button in case of breach -> planned corruption of file without having to tell anyone the password and quicker than full reencryption)
+	//..
+}
+
+
+
+decrypt without log file
+
+
+
+
+
+
+
+
+
+what i am currently trying to solve after you couldn't crack fluid1 (manual) in 4 days:
+1. assume you have an encrypted container with multiple files
+2. you still get the filenames/amount of files
+3. fluid1 edits the file in hex. it is supposed to do this every day, take part of the file away/replace it with random hex/aes and store that information in an offline logfile
+
+nosplit
+[         ] file
+[*********] file with aes
+[**🧩******] file with aes plus fluid1 🧩 is stored in a log file
+
+in a partial decrypt scenarion with the password to the fluid1 file, but without the logfile you could decrypt up to the first fluid one pass
+
+[**   = 2 files 
+^this part of the file is able to be decrypted
+
+what if you store part of that partially decryptable data at the end of the encrypted container?
+
+4. assume each asterix * is a seperate file inside of the encrypted container
+5. now imagine * = ; that is two files that are 'linked' to form the eintirety of one file. but if you break up the link and link half of the file with another unrelated filepiece inside of the container, couldn't you hide (for example) the file header of file one in the data portion of the file in file 5 (behind the fluid1 pass) let this be i instead of ;
+split
+[         ] file
+[;;;;;;;;;] file with aes
+[*i🧩*i****] file with aes plus fluid1 🧩 is stored in a log file
+
+partial decrypt with correct password but without logfile
+[*i = 1 file plus two unrelated halves of two different files because only i+i = **
+
+
+which method allowed the attacker to decrypt more files, nosplit or split?
+
+
+
+
+
+
+also musical encryption
+different modified mp3 files trigger different versions of fluid1
++0bfe //fluid filesize
+-0bfe//fluid filesize
+replace 0bfe with 1df1 //filesize stays the same
+
+//at row/place
+
+
+
+
+bruteforcing fluid1 if you don't know the password
+1. bruteforce file in HEX at ONE place of 900 000 places in a 14 mb encrypted archive
+2. run password bruteforcer WITHOUT knowing if the file is already 'uncorrupted' i.e. complete, in other words if modification from logfile have been undone
+3. repeat step 1. and 2.
+4. ????
+5. uncrackable without offline log file, promise.
+
+
+//how much is that mathematically speaking? INFINITE!!!! because infinite possible passwords
+ok let me show you
+let + be a single character in the file
+let - be the hex edit
+let O be your bruteforce attack on the password that DOES NOT KNOW WHETHER OR NOT THE FILE IS UNCORRUPTED WITHOUT _OFFLINE_ LOGFILE
+let t be the modification your bruteforce does to the file
+file +++++-+++++
+1. try 
+tO++++-+++++
+
+2.try
++t0+++-+++++
+
+3. try
+++t0++-+++++
+
+how does your bruteforce for password know when to stop trying?
+
+
+bruteforcing fluid1 if you know the password
+1. bruteforce file in HEX at ONE place of 900 000 places in a 14 mb encrypted archive
+2. try password WITHOUT knowing if the file is already 'uncorrupted' i.e. complete, in other words if modification from logfile have been undone
+3. repeat step 1. and 2.
+4. ????
+5. borderline uncrackable without offline log file, promise.
+
+
+//how much is that mathematically speaking? not infinite, because you only have to try all hex modifications on 900 000 places and one password.
+
+
+
+now you have tthe puzzle pieces have fun assembling the picture
+
+
+
+für y and l von MANKOT;GER k
+
+
+
+Copyright (c) 2022 πsyco / MANKOT;GER / Kevin Kofi Asiedu //you are allowed to replace MANKOT;GER with MTG for political correctness
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+8 days and counting for first file with instructions for manual fix - .7z
+1 day and counting no logfile file - .zip
+
+uncracked
